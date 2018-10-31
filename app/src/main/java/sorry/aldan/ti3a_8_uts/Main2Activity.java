@@ -14,7 +14,7 @@ import sorry.aldan.ti3a_8_uts.libraries.SessionManagement;
 public class Main2Activity extends AppCompatActivity {
 
     TextView txtUsername;
-    Button btnDatabase;
+    Button btnDatabase,btnLogout;
 
     SessionManagement sessionManagement;
     @Override
@@ -24,6 +24,7 @@ public class Main2Activity extends AppCompatActivity {
 
         txtUsername = findViewById(R.id.txtUsername);
         btnDatabase = findViewById(R.id.btnDatabase);
+        btnLogout = findViewById(R.id.btnLogout);
 
         sessionManagement = new SessionManagement(this);
 
@@ -36,6 +37,13 @@ public class Main2Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(Main2Activity.this,Main3Activity.class);
                 startActivity(i);
+            }
+        });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sessionManagement.logoutUser();
             }
         });
     }
